@@ -1,0 +1,69 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    margin: 5px;
+    padding: 5px;
+    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    width: 90%;
+}
+
+.wrapper-title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-times {
+    background-color: black;
+    width: 100%;
+    height: 10%;
+    min-height: 50px;
+    color: white;
+    justify-content: space-between;
+}
+
+input {
+    width: 70%;
+    background-color: gray;
+    height: 80%;
+}
+
+label {
+    width: 15%;
+    background-color: black;
+    min-height: 50px;
+    min-width: 100px;
+}
+
+button {
+    width: 15%;
+    height: 90%;
+}
+
+#time-9 {
+    width: 100px;
+}
+
+hr {
+    background-color: black;
+    width: 100%;
+    height: 3px;
+}
