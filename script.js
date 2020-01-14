@@ -5,6 +5,29 @@ if (tasksArr == null) {
     tasksArr = [];
     arrayIsEmpty = true;
 }
+let todaysDate = moment().format("MMM Do YY");
+let dateCheck = JSON.parse(window.localStorage.getItem('date'));
+console.log(dateCheck);
+if (dateCheck === null) {
+    todaysDate = moment().format("MMM Do YY")
+    console.log('this happened');
+};
+
+if (todaysDate != dateCheck) {
+    tasksArr = [];
+    window.localStorage.deleteItem('tasks');
+    window.localStorage.setItem('date', JSON.stringify(todaysDate))
+}
+let today = moment().format('dddd');
+console.log(todaysDate);
+console.log(today);
+
+let lastHour = parseInt(moment().format('h'));
+$('.text-save[data-taskhour = ' + lastHour + ']').css("background-color", "red");
+console.log(lastHour);
+colorHours(lastHour);
+
+$('#day').text(today);
 
 getTaskInfo(tasksArr);
 console.log(tasksArr);
@@ -55,5 +78,11 @@ function getTaskInfo (arr) {
     for (let i = 0; i < arr.length; i++) {
         let obj = arr[i];
         $('.text-save[data-taskhour = ' + obj.taskHour + ']').val(obj.taskText);
+    }
+}
+
+function colorHours(prevHour) {
+    for (let i = (prevHour + 1); i < 18; i++) {
+        $('.text-save[data-taskhour = ' + i + ']').css("background-color", "green");
     }
 }
