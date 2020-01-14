@@ -21,12 +21,13 @@ if (todaysDate != dateCheck) {
 let today = moment().format('dddd');
 console.log(todaysDate);
 console.log(today);
-
-let lastHour = parseInt(moment().format('h'));
+let lastHour = parseInt(moment().format('HH'));
+if (lastHour > 8 && lastHour < 18) {
 $('.text-save[data-taskhour = ' + lastHour + ']').css("background-color", "red");
-console.log(lastHour);
-colorHours(lastHour);
+$('button[data-target = ' + lastHour + ']').attr('class', 'save-btn');
 
+setupHours(lastHour);
+};
 $('#day').text(today);
 
 getTaskInfo(tasksArr);
@@ -81,8 +82,9 @@ function getTaskInfo (arr) {
     }
 }
 
-function colorHours(prevHour) {
+function setupHours(prevHour) {
     for (let i = (prevHour + 1); i < 18; i++) {
         $('.text-save[data-taskhour = ' + i + ']').css("background-color", "green");
+        $('button[data-target = ' + i + ']').attr('class', 'save-btn');
     }
 }
