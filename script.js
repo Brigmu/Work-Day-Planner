@@ -15,7 +15,7 @@ if (dateCheck === null) {
 
 if (todaysDate != dateCheck) {
     tasksArr = [];
-    window.localStorage.deleteItem('tasks');
+    window.localStorage.removeItem('tasks');
     window.localStorage.setItem('date', JSON.stringify(todaysDate))
 }
 let today = moment().format('dddd');
